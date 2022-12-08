@@ -390,6 +390,7 @@ function CompareGroup(a1, a2, a3) {
 	}
 }
 
+// part 1
 function SplitInput() {
 	for (i in input) {
 		let length = input[i].length;
@@ -398,31 +399,25 @@ function SplitInput() {
 		for (let j = 0; j < half; j++) {
 			let letter = input[i][j];
 			left.push(letter);
-			// console.log(letter);
 		}
 		let right = [];
 		for (let j = half; j < length; j++) {
 			let letter = input[i][j];
 			right.push(letter);
-			// console.log(letter);
 		}
-		// console.log(left);
-		// console.log(right);
 		let sameLetter = CompareArrays(left, right);
-		// console.log(sameLetter);
 		
 		sum += priorities[sameLetter];
 	}
-	// console.log(sum);
 }
 
 // SplitInput();
 
+// part 2
 function FindCommonInGroup() {
 	for (let i = 0; i < input.length; i += 3) {
 		let sameLetter = CompareGroup(input[i],input[i+1],input[i+2]);
 		sum += priorities[sameLetter];
-		console.log(sameLetter);
 	}
 }
 

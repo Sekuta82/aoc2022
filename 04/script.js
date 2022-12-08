@@ -1017,34 +1017,30 @@ const input = [
 [[72,77],[20,77]]
 ]
 
+// part 1
 function CompareRange() {
 	for (i in input) {
 		if(input[i][0][0] >= input[i][1][0] && input[i][0][1] <= input[i][1][1]) {
 			sum++;
-			console.log(input[i]);
 		} else if(input[i][1][0] >= input[i][0][0] && input[i][1][1] <= input[i][0][1]){
 			sum++;
-			console.log(input[i]);
 		}
 	}
 }
 
 // CompareRange();
 
+// part 2
 function Overlap() {
 	for (i in input) {
 		if(input[i][0][1] >= input[i][1][0] && input[i][0][0] <= input[i][1][0]) {
 			sum++;
-			// console.log(input[i]);
 		} else if(input[i][0][0] <= input[i][1][1] && input[i][0][1] >= input[i][1][1]) {
 			sum++;
-			// console.log(input[i]);
 		} else if(input[i][0][0] >= input[i][1][0] && input[i][0][1] <= input[i][1][1]) {
 			sum++;
-			// console.log(input[i]);
 		} else if(input[i][1][0] >= input[i][0][0] && input[i][1][1] <= input[i][0][1]){
 			sum++;
-			// console.log(input[i]);
 		}
 	}
 }

@@ -23,16 +23,13 @@ function SearchArray (length) {
 				let matches = slice.match(regex);
 				
 				if (matches.length > 1) {
-					// console.log('move on');
 					step++;
 					break;
 				}
 				// found it when final character is found only once
 				if (j == length -1) {
 					marker_found = true;
-					console.log(slice);
 					sum = step + length;
-					console.log(sum);
 				}
 			}
 		}

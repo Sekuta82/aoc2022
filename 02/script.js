@@ -2571,7 +2571,6 @@ function WinOrLose (pair) {
 	// add shape to score
 	score[0] += pair[1];
 			
-	console.log(results);
 }
 
 function OutcomeGiven (pair) {
@@ -2620,7 +2619,6 @@ function OutcomeGiven (pair) {
 			break;
 	}
 			
-	//console.log(results);
 }
 
 function Score () {
