@@ -1,6 +1,6 @@
 const output = document.getElementById('output');
 
-var sum = 0;
+var sum = ' ';
 
 var treeGrid = [];
 var visibilityGrid = [];
@@ -122,6 +122,8 @@ const input = [
 
 
 input.forEach((row)=> {ProcessInput(row)})
+rows = treeGrid.length;
+cols = treeGrid[0].length;
 
 visibilityGrid = InitGrid(0);
 scenicGrid = InitGrid(1);
@@ -129,19 +131,10 @@ scenicGrid = InitGrid(1);
 function ProcessInput (row) {
 	let treeLine = Array.from(row, Number);
 	treeGrid.push(treeLine);
-	rows = treeGrid.length;
-	cols = treeGrid[0].length;
 }
 
 function InitGrid (value) {
-	let grid = [];
-	for (let i in treeGrid) {
-		grid.push([]);
-		for (let j in treeGrid[i]) {
-			grid[i].push(value);
-		}
-	}
-	return grid;
+	return Array(treeGrid.length).fill(0).map(x => Array(treeGrid[0].length).fill(value));
 }
 
 function FindVisibleTrees () {
@@ -239,7 +232,19 @@ function CountVisibleTrees () {
 	return count;
 }
 
-sum = CountVisibleTrees();
+function PrintGrid (grid) {
+	for (let i in grid) {
+		sum += '<br/>';
+		sum += grid[i];
+	}
+}
+
+// PrintGrid(treeGrid);
+PrintGrid(visibilityGrid);
+// PrintGrid(scenicGrid);
+
+sum += '<br/> part 1: ';
+sum += CountVisibleTrees();
 
 // part 2
 function FindScenicScore () {
@@ -252,11 +257,7 @@ function FindScenicScore () {
 	return score;
 }
 
-sum += '<br/>';
+sum += '<br/> part 2: ';
 sum += FindScenicScore();
-
-console.log("treeGrid ", treeGrid);
-console.log("visibilityGrid ", visibilityGrid);
-console.log("scenicGrid ", scenicGrid);
 
 output.innerHTML = sum;
